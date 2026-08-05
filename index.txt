@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise 70th Birthday Celebration! | 70歲驚喜壽宴</title>
+  <style>
+    :root {
+      --dusty-pink: #d8a7a7;
+      --deep-dusty-pink: #b57c7c;
+      --soft-bg: #fdf8f8;
+      --card-bg: #ffffff;
+      --text-color: #4a3b3b;
+      --border-color: #e6cdcd;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--soft-bg);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 650px;
+      width: 100%;
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(181, 124, 124, 0.15);
+      border: 1px solid var(--border-color);
+    }
+
+    .lang-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--deep-dusty-pink);
+      color: var(--deep-dusty-pink);
+      padding: 5px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .lang-btn.active {
+      background: var(--deep-dusty-pink);
+      color: white;
+    }
+
+    .banner {
+      background-color: #fff0f0;
+      border-left: 4px solid #d9534f;
+      padding: 12px 15px;
+      margin-bottom: 25px;
+      border-radius: 4px;
+      font-weight: bold;
+      color: #a94442;
+    }
+
+    h1 {
+      color: var(--deep-dusty-pink);
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .details {
+      background-color: var(--soft-bg);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      text-align: center;
+      border: 1px dashed var(--dusty-pink);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    input[type="text"], input[type="number"], textarea, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--deep-dusty-pink);
+    }
+
+    .radio-group, .checkbox-group {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .radio-group label, .checkbox-group label {
+      font-weight: normal;
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      background-color: var(--dusty-pink);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: var(--deep-dusty-pink);
+    }
+
+    /* Toggle Language Displays */
+    [lang="zh"] { display: none; }
+    body.zh-active [lang="en"] { display: none; }
+    body.zh-active [lang="zh"] { display: block; }
+    body.zh-active inline[lang="zh"] { display: inline; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="lang-switch">
+    <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">English</button>
+    <button class="lang-btn" id="btn-zh" onclick="setLanguage('zh')">廣東話 / 中文</button>
+  </div>
+
+  <div class="banner">
+    <span lang="en">🤫 SHH! THIS IS A SURPRISE PARTY! Please do not mention this to Mom!</span>
+    <span lang="zh">🤫 保密！這是一個驚喜派對！請千萬不要告訴媽媽！</span>
+  </div>
+
+  <h1>
+    <span lang="en">Mom's 70th Birthday Celebration</span>
+    <span lang="zh">媽媽 70 歲大壽驚喜派對</span>
+  </h1>
+
+  <div class="details">
+    <p><strong><span lang="en">Date:</span><span lang="zh">日期：</span></strong> <span lang="en">Saturday, March 13, 2027</span><span lang="zh">2027年3月13日（星期六）</span></p>
+    <p><span lang="en">We are sending this advance notification for guests who need to arrange international travel. Full venue details will follow!</span>
+       <span lang="zh">我們特此提早通知，以便需要進行國際旅遊及安排行程的親友預早準備。具體地點細節將隨後通知！</span></p>
+  </div>
+
+  <!-- Replace YOUR_FORMSPREE_FORM_ID with your Formspree Endpoint ID -->
+  <form action="https://formspree.io/f/mrpzzrej" method="POST">
+    
+    <div class="form-group">
+      <label for="name">
+        <span lang="en">Full Name(s) of Attendee(s)</span>
+        <span lang="zh">出席者姓名</span>
+      </label>
+      <input type="text" id="name" name="name" required placeholder="e.g. John & Jane Doe / 陳大文及家人">
+    </div>
+
+    <div class="form-group">
+      <label>
+        <span lang="en">Will you be able to attend?</span>
+        <span lang="zh">您能否出席？</span>
+      </label>
+      <div class="radio-group">
+        <label><input type="radio" name="attendance" value="Attending" required> <span lang="en">Joyfully Accepts</span><span lang="zh">出席</span></label>
+        <label><input type="radio" name="attendance" value="Regretfully Declining"> <span lang="en">Regretfully Declines</span><span lang="zh">未能出席</span></label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="guests">
+        <span lang="en">Total Number of Guests Attending</span>
+        <span lang="zh">出席總人數</span>
+      </label>
+      <input type="number" id="guests" name="guest_count" min="1" value="1">
+    </div>
+
+    <div class="form-group">
+      <label>
+        <span lang="en">Do you need assistance finding travel accommodation / lodging?</span>
+        <span lang="zh">您需要幫忙安排或尋找住宿嗎？</span>
+      </label>
+      <div class="radio-group">
+        <label><input type="radio" name="lodging_help" value="Yes"> <span lang="en">Yes, please</span><span lang="zh">需要</span></label>
+        <label><input type="radio" name="lodging_help" value="No" checked> <span lang="en">No, I'm sorted</span><span lang="zh">不需要</span></label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dietary">
+        <span lang="en">Dietary Restrictions or Food Allergies</span>
+        <span lang="zh">飲食限制或過敏（如有）</span>
+      </label>
+      <textarea id="dietary" name="dietary_restrictions" rows="3" placeholder="e.g. Vegetarian, Peanut allergy, No seafood / 素食、花生過敏、不吃海鮮"></textarea>
+    </div>
+
+    <button type="submit">
+      <span lang="en">Submit RSVP</span>
+      <span lang="zh">提交回覆</span>
+    </button>
+  </form>
+</div>
+
+<script>
+  function setLanguage(lang) {
+    if (lang === 'zh') {
+      document.body.classList.add('zh-active');
+      document.getElementById('btn-zh').classList.add('active');
+      document.getElementById('btn-en').classList.remove('active');
+    } else {
+      document.body.classList.remove('zh-active');
+      document.getElementById('btn-en').classList.add('active');
+      document.getElementById('btn-zh').classList.remove('active');
+    }
+  }
+</script>
+
+</body>
+</html>
