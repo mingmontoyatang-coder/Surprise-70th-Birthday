@@ -3,220 +3,332 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Surprise 70th Birthday Celebration! | 70歲驚喜壽宴</title>
+  <title>Wendy and Cindy's 70th Birthday Surprise! | 媽媽 70 歲驚喜大壽</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --dusty-pink: #d8a7a7;
-      --deep-dusty-pink: #b57c7c;
-      --soft-bg: #fdf8f8;
+      --dusty-pink: #d89696;
+      --deep-pink: #b86b6b;
+      --soft-rose: #f4dcdb;
+      --light-bg: #fff5f5;
       --card-bg: #ffffff;
-      --text-color: #4a3b3b;
-      --border-color: #e6cdcd;
+      --text-dark: #4a3636;
+      --text-soft: #7a5e5e;
+      --accent-gold: #e2b04f;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--soft-bg);
-      color: var(--text-color);
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #fceae8 0%, #f3d1cf 100%);
+      color: var(--text-dark);
       margin: 0;
-      padding: 20px;
+      padding: 30px 15px;
       display: flex;
       justify-content: center;
+      min-height: 100vh;
+      box-sizing: border-box;
     }
 
-    .container {
-      max-width: 650px;
+    .card {
+      max-width: 620px;
       width: 100%;
       background: var(--card-bg);
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 4px 15px rgba(181, 124, 124, 0.15);
-      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 35px 30px;
+      box-shadow: 0 10px 30px rgba(184, 107, 107, 0.18);
+      border: 3px solid #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Top decorative bar */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, #d89696, #f3b1b1, #e2b04f, #d89696);
     }
 
     .lang-switch {
       display: flex;
       justify-content: flex-end;
-      gap: 10px;
+      gap: 8px;
       margin-bottom: 20px;
     }
 
     .lang-btn {
-      background: none;
-      border: 1px solid var(--deep-dusty-pink);
-      color: var(--deep-dusty-pink);
-      padding: 5px 12px;
+      background: var(--light-bg);
+      border: 2px solid var(--soft-rose);
+      color: var(--deep-pink);
+      padding: 6px 14px;
       border-radius: 20px;
       cursor: pointer;
-      font-weight: bold;
+      font-family: 'Fredoka', cursive;
+      font-size: 13px;
+      transition: all 0.2s ease;
     }
 
     .lang-btn.active {
-      background: var(--deep-dusty-pink);
+      background: var(--deep-pink);
       color: white;
+      border-color: var(--deep-pink);
+      box-shadow: 0 3px 8px rgba(184, 107, 107, 0.3);
     }
 
-    .banner {
-      background-color: #fff0f0;
-      border-left: 4px solid #d9534f;
-      padding: 12px 15px;
-      margin-bottom: 25px;
-      border-radius: 4px;
-      font-weight: bold;
-      color: #a94442;
+    .header-icon {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 5px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     h1 {
-      color: var(--deep-dusty-pink);
+      font-family: 'Fredoka', cursive;
+      color: var(--deep-pink);
       text-align: center;
-      margin-top: 0;
+      margin: 0 0 15px 0;
+      font-size: 28px;
     }
 
-    .details {
-      background-color: var(--soft-bg);
-      padding: 15px;
-      border-radius: 8px;
+    .surprise-badge {
+      background: #fff3cd;
+      border: 2px dashed var(--accent-gold);
+      padding: 12px 18px;
+      border-radius: 16px;
       margin-bottom: 25px;
       text-align: center;
-      border: 1px dashed var(--dusty-pink);
+      color: #856404;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(226, 176, 79, 0.15);
+    }
+
+    .party-details {
+      background: var(--light-bg);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+      border: 1px solid var(--soft-rose);
+    }
+
+    .party-details p {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
+    .date-highlight {
+      display: inline-block;
+      background: var(--card-bg);
+      color: var(--deep-pink);
+      font-family: 'Fredoka', cursive;
+      padding: 6px 16px;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-top: 5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
-    label {
+    label.field-label {
       display: block;
       margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    input[type="text"], input[type="number"], textarea, select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      box-sizing: border-box;
+      font-weight: 700;
+      color: var(--text-dark);
       font-size: 14px;
     }
 
-    input:focus, textarea:focus, select:focus {
+    input[type="text"], input[type="number"], textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid var(--soft-rose);
+      border-radius: 12px;
+      box-sizing: border-box;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      color: var(--text-dark);
+      background-color: #fcf8f8;
+      transition: all 0.2s ease;
+    }
+
+    input:focus, textarea:focus {
       outline: none;
-      border-color: var(--deep-dusty-pink);
+      border-color: var(--dusty-pink);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 4px rgba(216, 150, 150, 0.15);
     }
 
-    .radio-group, .checkbox-group {
-      display: flex;
-      gap: 15px;
-      align-items: center;
+    .radio-card-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
 
-    .radio-group label, .checkbox-group label {
-      font-weight: normal;
-      margin-bottom: 0;
+    .radio-card {
+      border: 2px solid var(--soft-rose);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
       cursor: pointer;
+      transition: all 0.2s ease;
+      background: #fcf8f8;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .radio-card input {
+      display: none;
+    }
+
+    .radio-card:has(input:checked) {
+      border-color: var(--deep-pink);
+      background: var(--soft-rose);
+      color: var(--deep-pink);
     }
 
     button[type="submit"] {
       width: 100%;
-      background-color: var(--dusty-pink);
+      background: linear-gradient(135deg, var(--dusty-pink) 0%, var(--deep-pink) 100%);
       color: white;
       border: none;
-      padding: 12px;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 6px;
+      padding: 15px;
+      font-family: 'Fredoka', cursive;
+      font-size: 18px;
+      border-radius: 16px;
       cursor: pointer;
-      transition: background 0.3s;
+      box-shadow: 0 4px 12px rgba(184, 107, 107, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-top: 10px;
     }
 
     button[type="submit"]:hover {
-      background-color: var(--deep-dusty-pink);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(184, 107, 107, 0.4);
     }
 
-    /* Toggle Language Displays */
+    button[type="submit"]:active {
+      transform: translateY(0);
+    }
+
+    /* Language Display Controls */
     [lang="zh"] { display: none; }
     body.zh-active [lang="en"] { display: none; }
     body.zh-active [lang="zh"] { display: block; }
     body.zh-active inline[lang="zh"] { display: inline; }
+    body.zh-active span[lang="zh"] { display: inline; }
   </style>
 </head>
 <body>
 
-<div class="container">
+<div class="card">
   <div class="lang-switch">
     <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">English</button>
     <button class="lang-btn" id="btn-zh" onclick="setLanguage('zh')">廣東話 / 中文</button>
   </div>
 
-  <div class="banner">
-    <span lang="en">🤫 SHH! THIS IS A SURPRISE PARTY! Please do not mention this to Mom!</span>
-    <span lang="zh">🤫 保密！這是一個驚喜派對！請千萬不要告訴媽媽！</span>
-  </div>
+  <div class="header-icon">👑 🎈 ✨</div>
 
   <h1>
-    <span lang="en">Mom's 70th Birthday Celebration</span>
-    <span lang="zh">媽媽 70 歲大壽驚喜派對</span>
+    <span lang="en">Wendy and Cindy's 70th Birthday Party!</span>
+    <span lang="zh">媽媽 70 大壽驚喜慶典！</span>
   </h1>
 
-  <div class="details">
-    <p><strong><span lang="en">Date:</span><span lang="zh">日期：</span></strong> <span lang="en">Saturday, March 13, 2027</span><span lang="zh">2027年3月13日（星期六）</span></p>
-    <p><span lang="en">We are sending this advance notification for guests who need to arrange international travel. Full venue details will follow!</span>
-       <span lang="zh">我們特此提早通知，以便需要進行國際旅遊及安排行程的親友預早準備。具體地點細節將隨後通知！</span></p>
+  <div class="surprise-badge">
+    <span lang="en">🤫 SHH! IT'S A SURPRISE! Please keep this secret from Wendy (Wan Tai) Wong and Cindy (Suk Yee) Cheung!</span>
+    <span lang="zh">🤫 保密大行動！千萬唔好講俾媽媽知呀！</span>
   </div>
 
-  <!-- Replace YOUR_FORMSPREE_FORM_ID with your Formspree Endpoint ID -->
+  <div class="party-details">
+    <p><strong><span lang="en">Save the Date</span><span lang="zh">請預留日期</span></strong></p>
+    <div class="date-highlight">
+      <span lang="en">🗓️ Saturday, March 13, 2027</span>
+      <span lang="zh">🗓️ 2027年3月13日（星期六）</span>
+    </div>
+    <p style="font-size: 13px; color: var(--text-soft); margin-top: 12px;">
+      <span lang="en">✈️ We are sending this early announcement to assist guests traveling internationally. Venue details and times will follow!</span>
+      <span lang="zh">✈️ 為方便海外親友提早安排機票同行程，我哋特此提早通知！具體時間地點將隨後公佈！</span>
+    </p>
+  </div>
+
+  <!-- Replace YOUR_FORMSPREE_FORM_ID with your Formspree ID -->
   <form action="https://formspree.io/f/mrpzzrej" method="POST">
     
     <div class="form-group">
-      <label for="name">
-        <span lang="en">Full Name(s) of Attendee(s)</span>
-        <span lang="zh">出席者姓名</span>
+      <label class="field-label" for="name">
+        <span lang="en">Your Name(s) 🌸</span>
+        <span lang="zh">閣下 / 貴眷姓名 🌸</span>
       </label>
-      <input type="text" id="name" name="name" required placeholder="e.g. John & Jane Doe / 陳大文及家人">
+      <input type="text" id="name" name="name" required placeholder="e.g. Auntie Mary & Uncle Bob / 陳大文一家">
     </div>
 
     <div class="form-group">
-      <label>
-        <span lang="en">Will you be able to attend?</span>
-        <span lang="zh">您能否出席？</span>
+      <label class="field-label">
+        <span lang="en">Will you be celebrating with us?</span>
+        <span lang="zh">你能否光臨同歡？</span>
       </label>
-      <div class="radio-group">
-        <label><input type="radio" name="attendance" value="Attending" required> <span lang="en">Joyfully Accepts</span><span lang="zh">出席</span></label>
-        <label><input type="radio" name="attendance" value="Regretfully Declining"> <span lang="en">Regretfully Declines</span><span lang="zh">未能出席</span></label>
+      <div class="radio-card-group">
+        <label class="radio-card">
+          <input type="radio" name="attendance" value="Attending" checked onclick="toggleAttendingFields(true)">
+          <span lang="en">🥳 Yes, can't wait!</span>
+          <span lang="zh">🥳 一定到！好期待！</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="attendance" value="Declining" onclick="toggleAttendingFields(false)">
+          <span lang="en">💔 Sorry, can't make it</span>
+          <span lang="zh">💔 遺憾未能出席</span>
+        </label>
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="guests">
-        <span lang="en">Total Number of Guests Attending</span>
-        <span lang="zh">出席總人數</span>
-      </label>
-      <input type="number" id="guests" name="guest_count" min="1" value="1">
-    </div>
-
-    <div class="form-group">
-      <label>
-        <span lang="en">Do you need assistance finding travel accommodation / lodging?</span>
-        <span lang="zh">您需要幫忙安排或尋找住宿嗎？</span>
-      </label>
-      <div class="radio-group">
-        <label><input type="radio" name="lodging_help" value="Yes"> <span lang="en">Yes, please</span><span lang="zh">需要</span></label>
-        <label><input type="radio" name="lodging_help" value="No" checked> <span lang="en">No, I'm sorted</span><span lang="zh">不需要</span></label>
+    <div id="attending-fields">
+      <div class="form-group">
+        <label class="field-label" for="guests">
+          <span lang="en">Number of Guests (including yourself)</span>
+          <span lang="zh">出席總人數（包括閣下）</span>
+        </label>
+        <input type="number" id="guests" name="guest_count" min="1" value="1">
       </div>
-    </div>
 
-    <div class="form-group">
-      <label for="dietary">
-        <span lang="en">Dietary Restrictions or Food Allergies</span>
-        <span lang="zh">飲食限制或過敏（如有）</span>
-      </label>
-      <textarea id="dietary" name="dietary_restrictions" rows="3" placeholder="e.g. Vegetarian, Peanut allergy, No seafood / 素食、花生過敏、不吃海鮮"></textarea>
+      <div class="form-group">
+        <label class="field-label">
+          <span lang="en">Would you like assistance with lodging / hotel recommendations? 🏨</span>
+          <span lang="zh">需要我哋幫忙推薦或安排住宿嗎？🏨</span>
+        </label>
+        <div class="radio-card-group">
+          <label class="radio-card">
+            <input type="radio" name="lodging_help" value="Yes">
+            <span lang="en">Yes, please!</span>
+            <span lang="zh">需要，麻煩晒！</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="lodging_help" value="No" checked>
+            <span lang="en">No need, thanks!</span>
+            <span lang="zh">不需要，謝謝！</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="field-label" for="dietary">
+          <span lang="en">Dietary Restrictions or Food Allergies 🥗</span>
+          <span lang="zh">飲食限制或食物過敏 🥗</span>
+        </label>
+        <textarea id="dietary" name="dietary_restrictions" rows="3" placeholder="e.g. Vegetarian, Seafood allergy, No nuts / 素食、唔食海鮮、花生過敏"></textarea>
+      </div>
     </div>
 
     <button type="submit">
-      <span lang="en">Submit RSVP</span>
-      <span lang="zh">提交回覆</span>
+      <span lang="en">Send RSVP 🎉</span>
+      <span lang="zh">提交回覆 🎉</span>
     </button>
   </form>
 </div>
@@ -232,6 +344,16 @@
       document.getElementById('btn-en').classList.add('active');
       document.getElementById('btn-zh').classList.remove('active');
     }
+  }
+
+  function toggleAttendingFields(isAttending) {
+    const fields = document.getElementById('attending-fields');
+    fields.style.display = isAttending ? 'block' : 'none';
+  }
+</script>
+
+</body>
+</html>
   }
 </script>
 
